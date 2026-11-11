@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ficha digital — avaliação sensorial</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><h1>Estudo de avaliação sensorial de bebidas fermentadas com baixo teor alcoólico</h1><p>Ficha de prova para consumidores não treinados (focus group) - Napping por atributo, global e preferência</p></header>
+<main>
+<div class="progress" id="progress"></div>
+<form id="form">
+
+<!-- Bem-vindo(a) -->
+<section class="step active card">
+<h2>Bem-vindo(a)</h2><p class="sub">O objetivo é conhecer a forma como perceciona e compara as amostras. Não existem respostas certas ou erradas.</p>
+<div class="notice"><b>Participação responsável:</b> só pode participar quem tiver idade legal para consumir bebidas alcoólicas. A participação é voluntária e pode ser interrompida a qualquer momento. Siga as indicações do responsável pela prova.</div>
+<label class="choice"><input type="checkbox" id="consent" required>Confirmo que tenho idade legal e aceito participar voluntariamente.</label>
+<label for="pid">Código do participante</label><input id="pid" placeholder="Ex.: P001">
+<label for="n">Número de amostras</label><select id="n"><option value="4">4</option><option value="5" selected>5</option><option value="6">6</option></select>
+<div class="actions"><span></span><button class="btn primary" type="button" onclick="next()">Começar</button></div>
+</section>
+
+<!-- Caracterização -->
+<section class="step card">
+<h2>Caracterização do participante</h2><p class="sub">Responda apenas ao que se sentir confortável em partilhar.</p>
+<div class="grid"><div><label for="age">Faixa etária</label><select id="age"><option value="">Selecione</option><option>18–24</option><option>25–34</option><option>35–44</option><option>45–54</option><option>55 ou mais</option><option>Prefiro não responder</option></select></div>
+<div><label for="gender">Género (opcional)</label><select id="gender"><option value="">Prefiro não responder</option><option>Feminino</option><option>Masculino</option><option>Outro</option></select></div></div>
+<label for="frequency">Frequência de consumo desta categoria</label><select id="frequency"><option value="">Selecione</option><option>Diariamente</option><option>Várias vezes por semana</option><option>Uma vez por semana</option><option>Algumas vezes por mês</option><option>Ocasionalmente</option><option>Nunca ou quase nunca</option></select>
+<label for="familiarity">Familiaridade com este tipo de bebida</label><select id="familiarity"><option value="">Selecione</option><option>Elevada</option><option>Moderada</option><option>Reduzida</option><option>Nenhuma</option></select>
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="button" onclick="next()">Seguinte</button></div>
+</section>
+
+<!-- Contexto de consumo -->
+<section class="step card">
+<h2>Contexto de consumo</h2><p class="sub">Pense no momento em que poderia estar a consumir este tipo de bebidas.</p>
+
+<div class="question">
+<label>Em que situações/locais imagina que poderia consumir este produto?</label>
+<p class="hint">Selecione todas as opções que se aplicam.</p>
+<label class="choice"><input type="checkbox" name="consumption_context" value="Num bar">Num bar</label>
+<label class="choice"><input type="checkbox" name="consumption_context" value="Em casa">Em casa</label>
+<label class="choice"><input type="checkbox" name="consumption_context" value="À refeição">À refeição</label>
+<label class="choice"><input type="checkbox" name="consumption_context" value="Num evento social">Num evento social</label>
+<label class="choice"><input type="checkbox" name="consumption_context" value="Outra" id="otherContextOpt">Outra</label>
+<input type="text" id="otherContext" placeholder="Especifique..." hidden>
+</div>
+
+<div class="question">
+<label>Como imagina a embalagem deste tipo de bebidas?</label>
+<p class="hint">Selecione todas as opções que se aplicam.</p>
+<label class="choice"><input type="checkbox" name="packaging" value="Garrafa individual">Garrafa individual</label>
+<label class="choice"><input type="checkbox" name="packaging" value="Lata">Lata</label>
+<label class="choice"><input type="checkbox" name="packaging" value="Garrafa tipo vinho">Garrafa tipo vinho</label>
+<label class="choice"><input type="checkbox" name="packaging" value="Outra" id="otherPackOpt">Outra</label>
+<input type="text" id="otherPack" placeholder="Especifique..." hidden>
+</div>
+
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="button" onclick="next()">Seguinte</button></div>
+</section>
+
+<!-- Expectativas -->
+<section class="step card">
+<h2>Expectativas antes da prova</h2><p class="sub">Responda antes de provar. Não existem respostas certas ou erradas.</p>
+<label for="expect">O que espera encontrar nesta bebida?</label><textarea id="expect" rows="3" placeholder="Pode referir cor, aroma, sabor, sensação em boca ou outras características."></textarea>
+<p class="hint">Nas páginas seguintes vai fazer um mapa de napping por atributo, um de cada vez.</p>
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="button" onclick="next()">Seguinte</button></div>
+</section>
+
+<!-- As páginas de napping por atributo (uma por atributo) são inseridas aqui pelo JavaScript -->
+
+<!-- Napping global -->
+<section class="step card">
+<h2>Napping global</h2><p class="sub">Agora considere a experiência sensorial no seu conjunto, sem se focar num atributo específico.</p>
+<p><b>Instrução:</b> arraste os códigos. Coloque próximas as amostras que considera globalmente mais semelhantes e afaste as que considera mais diferentes.</p>
+<div class="map" id="globalMap"></div><p class="hint">A proximidade representa semelhança global; não representa gostar mais ou menos.</p>
+<label for="globalNote">Que aspetos mais influenciaram a organização? (opcional)</label><textarea id="globalNote" rows="2"></textarea>
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="button" onclick="next()">Seguinte</button></div>
+</section>
+
+<!-- Napping de preferência -->
+<section class="step card">
+<h2>Napping de preferência</h2><p class="sub">Neste mapa, pense apenas no quanto gostou das amostras.</p>
+<p><b>Instrução:</b> aproxime as amostras de que gostou de forma semelhante e afaste as amostras de que gostou de forma diferente. Não há uma posição certa e não precisa de justificar a sua escolha.</p>
+<div class="map" id="preferenceMap"></div>
+<label for="favorite">Qual é a sua amostra favorita?</label><select id="favorite"><option value="">Selecione a sua favorita</option></select>
+<label for="preferenceWhy">O que mais contribuiu para a sua escolha? (opcional)</label><textarea id="preferenceWhy" rows="2" placeholder="Ex.: aroma, sabor, equilíbrio, sensação em boca..."></textarea>
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="button" onclick="next()">Seguinte</button></div>
+</section>
+
+<!-- Comentário final -->
+<section class="step card">
+<h2>Comentário final</h2><p class="sub">Se desejar, deixe uma observação sobre as amostras ou sobre a experiência.</p>
+<label for="comments">Comentários (opcional)</label><textarea id="comments" rows="4"></textarea>
+<div class="notice">Confirme que colocou todos os códigos em todos os mapas e selecionou a sua amostra favorita.</div>
+<div class="actions"><button class="btn secondary" type="button" onclick="prev()">Anterior</button><button class="btn primary" type="submit">Guardar participação</button></div>
+</section>
+</form>
+
+<section class="card" id="done" hidden><div class="success"><h2>Participação guardada neste dispositivo.</h2><p>Obrigado pela colaboração.</p></div>
+<p>Os dados permanecem neste navegador até serem exportados. Exporte regularmente e mantenha uma cópia de segurança.</p>
+<button class="btn primary" type="button" onclick="exportCSV()">Exportar dados (CSV para Excel)</button> <button class="btn secondary" type="button" onclick="newParticipant()">Nova participação</button><p class="hint" id="count"></p></section>
+<footer>Protótipo metodológico. Antes da recolha oficial, valide as instruções, os atributos, a aleatorização e o plano de análise.</footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
